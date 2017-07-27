@@ -1,4 +1,6 @@
-![](images/RC_Logo_Small.gif)
+<p align="center">
+  <img src="https://github.com/MarcusNTuttle/RainbowCORE/blob/master/images/RC_Logo_Small.gif?raw=true" alt="RainbowCORE"/>
+</p>
 
 # RainbowCORE
 
@@ -8,7 +10,7 @@ These files rely and use the [Greasemonkey FireFox Extension](https://addons.moz
 
 ## Getting Started
 
-* [Install Guide](https://github.com/MarcusNTuttle/RainbowCORE/blob/initial/RainbowCORE_Install_Guide.pdf)
+* [Install Guide](RainbowCORE_Install_Guide.pdf)
 * [Legend](images/RainbowCore_Legend.png)
 
 ## Previews
