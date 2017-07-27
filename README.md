@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/MarcusNTuttle/RainbowCORE/blob/master/images/RC_Logo_Small.gif?raw=true" alt="RainbowCORE"/>
+  <img src="https://github.com/MarcusNTuttle/RainbowCORE/blob/master/images/RainbowCore_Animated.gif?raw=true" alt="RainbowCORE"/>
 </p>
 
 # RainbowCORE
