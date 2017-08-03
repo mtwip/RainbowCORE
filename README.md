@@ -11,7 +11,13 @@ These files rely and use the [Greasemonkey FireFox Extension](https://addons.moz
 ## Getting Started
 
 * [Install Guide](RainbowCORE_Install_Guide.pdf)
-* [Legend](images/RainbowCore_Legend.png)
+* [Legend](RainbowCore_Legend.png)
+
+## Current Views Supported
+
+- All Tickets
+- Pending Tickets (TS Filtered)
+- Pending Tickets (TS Only)
 
 ## Previews
 

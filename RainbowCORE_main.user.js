@@ -246,28 +246,6 @@ switch( $(".CurrentViewItem").text() )
 		};
 
         break;
-
-
-    case "Pending Tickets (TS Filtered)":
-
-    	var CurrentView = {
-	    	Assigned:			1,
-			Status:				2,
-			Customer:			3,
-			hd_Number:			4,
-			Subject:			5, //prefix was added as Number is a reserved word in JS
-			Type:				6,
-			Severity:			7,
-			Product:			8,
-			Version:			9,
-			Modified_Date:		10,
-			Last_Update_By:		11,
-			Last_Update_By_2:	12, //there is two of these columns in the view. One is related to the rep.
-			Do_not_contact:		13,
-			Author:				14
-		};
-
-        break;
 } 
 
 
