@@ -9,6 +9,7 @@
 // @require https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
 // ==/UserScript==
 
+
 this.$ = this.jQuery = jQuery.noConflict(true); //allows all of this to work without breaking Reliance
 
 
