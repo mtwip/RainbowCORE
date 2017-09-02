@@ -4,30 +4,25 @@
 // @namespace   https://www.MarcusTuttle.com
 // @description This script contains the main functions for RainbowCORE.
 // @include     https://relsvr.etq.com/*
-// @version     1.0
+// @version     1.1
 // @grant    GM_addStyle
 // @require https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
+// @exclude https://relsvr.etq.com/internal/reliance?ETQ$CMD=CMD_OPEN_ATTACHMENT&*
 // ==/UserScript==
-
 
 this.$ = this.jQuery = jQuery.noConflict(true); //allows all of this to work without breaking Reliance
 
 
-/******************************************************************************************************************
-	Supported Views in HelpDesk.
-		This script focuses on runs only on the listed views. If at any point the view names are changed on the 
-		Help Desk, nothing will run. 
-
-		Issues will also start happening if column names are changed, removed, or rearranged.
-		
-		"All Tickets"
-		"Pending Tickets"
-
-*******************************************************************************************************************/
-
+if (window.location.href.indexOf("ETQ$CMD=CMD_OPEN_ATTACHMENT") > -1) {
+    alert("found it");
+}
 
 /******************************************************************************************************************
-	Variables Block Start. Change these to Customize Settings.
+ ******************************************************************************************************************
+	Start of Variables Block.
+	
+	If you make changes here, make sure to save them somewhere before upgrading
+ ******************************************************************************************************************		
 *******************************************************************************************************************/
 
 //Limit Subject characters - Set to -1 if you would like to not use this
@@ -196,6 +191,28 @@ var BOLD_TICKET_NUM = true;
 	};
 
 
+
+/******************************************************************************************************************
+ ******************************************************************************************************************
+	End of Variables Block.
+	
+	Do not make any changes past this point unless you know what you are doing!
+ ******************************************************************************************************************		
+*******************************************************************************************************************/
+
+/******************************************************************************************************************
+	Supported Views in HelpDesk.
+		This script focuses on runs only on the listed views. If at any point the view names are changed on the 
+		Help Desk, nothing will run. 
+
+		Issues will also start happening if column names are changed, removed, or rearranged.
+		
+		All Tickets
+		Pending Tickets (TS Only)		
+		Pending Tickets (TS Filtered)
+
+*******************************************************************************************************************/
+
 /******************************************************************************************************************
 	Current Support Views Configurations
 		Make changes to these if columns are removed, added, or the order is changed.
@@ -272,20 +289,34 @@ switch( $(".CurrentViewItem").text() )
 } 
 
 
-/******************************************************************************************************************
- ******************************************************************************************************************
-	End of Variables Block.
- ******************************************************************************************************************		
-*******************************************************************************************************************/
+
 
 //checks if on the login page and runs the customizations for the login page.
 LoginPageChanges();
 
+
+
+
 //if the current view is supported, continue forward
 if(CurrentView)
 {
-	RC_main(CurrentView);
+	//this timeout is to deal with elements that reliance adds as the page loads
+	setTimeout(function(){
+		
+		//call the main function
+		RC_main(CurrentView);
+	
+		//remove the unneeded classes
+		$("tr.ColumnValue").removeClass("SelectedViewRecord");
+		$("tr.ColumnValue").removeClass("EvenViewRecord");
+		
+
+	}, 5);
+	
 }
+
+//show the rows no matter what
+$("tr.ColumnValue").toggle();
 
 
 /**
@@ -298,6 +329,9 @@ function RC_main(CurrentView)
 	var temp;
 	var elementRowChild; //variable used as placeholder for child
 	var elementRowChildInfo; //variable used as temp placeholder for information gathered from the Child
+	
+	
+
 
 	//Loop through all of the related tickets
 	for(i=0; i< amountOfTickets; i++)
@@ -337,7 +371,7 @@ function RC_main(CurrentView)
 						elementRowChildInfo = elementRow.children(":first").nextAll().slice(CurrentView.Status-1, CurrentView.Status).text();
 
 						if (STATUS_OPTIONS[elementRowChildInfo])
-						{
+						{																			
 							elementRow.css("background", STATUS_OPTIONS[elementRowChildInfo]);
 						}
 						
@@ -472,6 +506,9 @@ function RC_main(CurrentView)
 
 
 }
+
+
+
 
 
 /**
