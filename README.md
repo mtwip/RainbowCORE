@@ -10,8 +10,10 @@ These files rely and use the [Greasemonkey FireFox Extension](https://addons.moz
 
 ## Getting Started
 
-* [Install Guide](RainbowCORE_Install_Guide.pdf)
-* [Legend](RainbowCore_Legend.png)
+* [Install Guide](guides/RainbowCORE_Install_Guide.pdf)
+* [Upgrade Guide](guides/RainbowCORE_Upgrade_Guide.pdf)
+* [Upgrade 1.0 to 1.1 Guide](guides/RainbowCORE_Upgrade_Guide_1.1.pdf)
+* [Legend](guides/RainbowCore_Legend.png)
 
 ## Current Views Supported
 
