@@ -12,11 +12,6 @@
 
 this.$ = this.jQuery = jQuery.noConflict(true); //allows all of this to work without breaking Reliance
 
-
-if (window.location.href.indexOf("ETQ$CMD=CMD_OPEN_ATTACHMENT") > -1) {
-    alert("found it");
-}
-
 /******************************************************************************************************************
  ******************************************************************************************************************
 	Start of Variables Block.
